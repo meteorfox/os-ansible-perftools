@@ -1,0 +1,19 @@
+---
+- name: Deploy reports server
+  hosts: monitor
+  roles:
+    - role: reports-server
+      live_hostname: "{{ ansible_eth1.ipv4.address}}.xip.io"
+      domains:
+        - "{{ ansible_eth1.ipv4.address}}.xip.io"
+        - "www.{{ ansible_eth1.ipv4.address }}.xip.io"
+
+- name: Install PerfkitBenchmarker
+  hosts: monitor
+  roles:
+    - role: perfkitbenchmarker
+
+- name: Install other miscellaneous perf tools
+  hosts: all
+  roles:
+    - role: misc-perftools

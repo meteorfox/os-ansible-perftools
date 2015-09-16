@@ -1,0 +1,20 @@
+---
+- name: Install Rally and its dependencies
+  hosts: monitor
+  roles:
+    - role: ansible-rally
+
+- name: Provision reports server
+  hosts: monitor
+  roles:
+    - role: reports-server
+
+- name: Install PCP daemon across cluster
+  hosts: all
+  roles:
+    - role: pcp-ansible
+
+- name: Install other miscellaneous perf tools
+  hosts: all
+  roles:
+    - role: misc-perftools

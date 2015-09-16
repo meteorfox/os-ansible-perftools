@@ -1,0 +1,22 @@
+
+server {
+    listen {{ reports_server_http_port }};
+
+    server_name {{ domains|join(", ") }};
+    keepalive_timeout 15;
+
+    root {{ reports_server_root_path }};
+
+    location / {
+      index index.htm index.html;
+    }
+
+    location /{{ reports_server_index_path }}/ {
+      autoindex on;
+    }
+
+    location /favicon.ico {
+        access_log     off;
+	log_not_found  off;
+    }
+}

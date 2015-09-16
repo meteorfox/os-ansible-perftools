@@ -1,0 +1,56 @@
+---
+- name: Install apt packages
+  sudo: True
+  apt:
+    pkg: "{{ item }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - "{{ perfkitbenchmarker_apt_packages }}"
+
+- name: Get Modern PIP
+  sudo: True
+  get_url:
+    url: "{{ pip_get_pip_url }}"
+    dest: "/opt/get-pip.py"
+    force: "yes"
+    validate_certs: "no"
+
+- name: Install PIP
+  sudo: True
+  shell: "python /opt/get-pip.py {{ pip_get_pip_options }}"
+  changed_when: false
+
+- name: Install required pip packages
+  sudo: True
+  pip:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ perfkitbenchmarker_requires_pip_packages }}"
+
+- name: Get PerfKitBenchmarker from git
+  sudo: True
+  git:
+    repo: "{{ perfkitbenchmarker_git_repo }}"
+    dest: "{{ perfkitbenchmarker_git_dest }}"
+    version: "{{ perfkitbenchmarker_git_install_branch }}"
+
+- name: Install pip packages for PerfKitBenchmarker
+  sudo: True
+  pip:
+    requirements: "{{ perfkitbenchmarker_git_dest }}/requirements.txt"
+    state: present
+    virtualenv: "{{ perfkitbenchmarker_git_dest }}"
+    virtualenv_site_packages: "yes"
+
+- name: Install PerfKitBenchmarker
+  sudo: True
+  pip:
+    name: "{{ item }}"
+    state: present
+    virtualenv: "{{ perfkitbenchmarker_git_dest }}"
+    virtualenv_site_packages: yes
+  with_items:
+    - "{{ perfkitbenchmarker_pip_packages }}"

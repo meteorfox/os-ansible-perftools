@@ -1,0 +1,25 @@
+---
+# Git repository vars
+perfkitbenchmarker_git_repo: https://github.com/GoogleCloudPlatform/PerfKitBenchmarker.git
+perfkitbenchmarker_git_install_branch: 3a986bcefc9c92af9c5bb61a22b29d0921b0aafc
+perfkitbenchmarker_git_dest: "/opt/perkitbenchmarker_{{ perfkitbenchmarker_git_install_branch | replace('/', '_') }}"
+
+# PIP vars
+## Path to pip download/installation script.
+pip_upstream_repo_url: https://bootstrap.pypa.io
+pip_get_pip_url: "{{ pip_upstream_repo_url }}/get-pip.py"
+
+# Additional options that you might want to pass to "get-pip.py" when installing pip.
+# Default `pip_get_pip_options` is an empty string.
+pip_get_pip_options: ""
+
+perfkitbenchmarker_apt_packages:
+  - build-essential
+  - python-dev
+
+perfkitbenchmarker_requires_pip_packages:
+  - python-novaclient
+  - virtualenv
+
+perfkitbenchmarker_pip_packages:
+  - "file://{{ perfkitbenchmarker_git_dest }}"

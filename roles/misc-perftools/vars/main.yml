@@ -1,0 +1,5 @@
+---
+perf_tools_git_repo: https://github.com/brendangregg/perf-tools.git
+perf_tools_git_install_branch: 5a2c24587b1f449e4a59c9e12c37d92bb46de1a9
+perf_tools_git_dest: "perf-tools_{{ perf_tools_git_install_branch }} | replace('/', '_') }}"
+

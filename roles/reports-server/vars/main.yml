@@ -1,0 +1,4 @@
+---
+reports_server_http_port: 80
+reports_server_root_path: /var/www/html/reports-server
+reports_server_index_path: "rally-reports"

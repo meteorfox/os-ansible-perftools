@@ -1,0 +1,51 @@
+---
+- name: Create report-server directory
+  sudo: True
+  file:
+    path: "{{ reports_server_root_path }}"
+    recurse: yes
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0755
+
+- name: Create report-server archive directory
+  sudo: True
+  file:
+    path: "{{reports_server_root_path}}/{{ reports_server_index_path }}"
+    recurse: yes
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0755
+
+- name: Disable the default site
+  sudo: True
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+  notify: restart nginx
+
+- name: Set the nginx config file
+  sudo: True
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/sites-available/rally-reports.conf
+  notify: restart nginx
+
+- name: Enable the nginx config file
+  sudo: True
+  file:
+    src: /etc/nginx/sites-available/rally-reports.conf
+    dest: /etc/nginx/sites-enabled/rally-reports.conf
+    state: link
+  notify: restart nginx
+
+- name: Copy example report
+  sudo: True
+  copy:
+    src: rally-example-report.html
+    dest: "{{ reports_server_root_path }}/index.html"
+    force: no
+    owner: www-data
+    group: www-data

@@ -1,0 +1,21 @@
+---
+- name: Install APT packages
+  sudo: True
+  apt:
+    pkg: "{{ item }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - git
+    - sysstat
+    - nmon
+    - iotop
+    - bwm-ng
+
+- name: Install perf-tools from git
+  git:
+    repo: "{{ perf_tools_git_repo }}"
+    dest: "{{ perf_tools_git_dest }}"
+    version: "{{ perf_tools_git_install_branch }}"
+  when: misc-perftools-install-tracing-tools
