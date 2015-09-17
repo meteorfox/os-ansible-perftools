@@ -24,3 +24,5 @@
     - nginx
 
 - include: nginx.yml
+- include: reports_server_post_install.yml
+
