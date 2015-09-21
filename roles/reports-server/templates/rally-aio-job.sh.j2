@@ -3,7 +3,7 @@
 NOW=`date +"%Y%m%d-%H%M%S"`
 
 rally --log-file /opt/rally-resources/logs/rally_${NOW}.log task start \
-    --task /opt/rally-resources/tasks/all-in-one.yaml
+    --task /opt/rally-resources/tasks/all-in-one.yml
 
 # Create rally report
 TASKID=`rally task status | awk '{print $2}' | tr -d :`
