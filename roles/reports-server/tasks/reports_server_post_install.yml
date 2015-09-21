@@ -41,7 +41,7 @@
   sudo: True
   template:
     src: rally-aio-job.sh.j2
-    dest: /opt/rally-resources/scripts
+    dest: /opt/rally-resources/scripts/rally-aio-job.sh
     mode: 0744
 
 - name: Create Rally images directory
