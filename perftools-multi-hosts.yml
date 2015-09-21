@@ -32,7 +32,7 @@
   hosts: monitor
   roles:
     - role: reports-server
-      live_hostname: "{{ ansible_eth1.ipv4.address}}.xip.io"
+      live_hostname: "{{ ansible_default_ipv4.address}}.xip.io"
       domains:
-        - "{{ ansible_eth1.ipv4.address}}.xip.io"
-        - "www.{{ ansible_eth1.ipv4.address }}.xip.io"
+        - "{{ ansible_default_ipv4.address}}.xip.io"
+        - "www.{{ ansible_default_ipv4.address }}.xip.io"
