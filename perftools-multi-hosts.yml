@@ -36,3 +36,5 @@
       domains:
         - "{{ ansible_default_ipv4.address}}.xip.io"
         - "www.{{ ansible_default_ipv4.address }}.xip.io"
+        - "{{ ansible_em.ipv4.address }}.xip.io"
+        - "www.{{ ansible_em.ipv4.address }}.xip.io"
