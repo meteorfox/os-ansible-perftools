@@ -40,7 +40,7 @@
 - name: Generate AIO task Rally script
   sudo: True
   template:
-    src: rally-aio.job.sh.j2
+    src: rally-aio-job.sh.j2
     dest: /opt/rally-resources/scripts
     mode: 0744
 
