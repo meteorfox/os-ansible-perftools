@@ -2,12 +2,12 @@
 # Credits to RDO team: https://www.rdoproject.org/Testing_RDO_with_Rally
 NOW=`date +"%Y%m%d-%H%M%S"`
 
-rally --log-file /opt/rally-tests/logs/rally_$date.log task start \
-    --task /opt/rally-tests/tasks/allinone.yaml
+rally --log-file /opt/rally-resources/logs/rally_${NOW}.log task start \
+    --task /opt/rally-resources/tasks/all-in-one.yaml
 
 # Create rally report
 TASKID=`rally task status | awk '{print $2}' | tr -d :`
-rally task report $TASKID \
-    --out {{ reports_server_root_path }}/{{ reports_server_index_path }}/$NOW.html
+rally task report "$TASKID" \
+    --out {{ reports_server_root_path }}/{{ reports_server_index_path }}/${NOW}.html
 
-rally task report $TASKID --out {{ reports_server_root_path}}/index.html
+rally task report "$TASKID" --out {{ reports_server_root_path }}/index.html

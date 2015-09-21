@@ -21,6 +21,29 @@
     state: directory
     mode: 0755
 
+- name: Create Rally logs directory
+  sudo: True
+  file:
+    path: /opt/rally-resources/logs
+    recurse: yes
+    state: directory
+    mode: 0755
+
+- name: Create Rally scripts directory
+  sudo: True
+  file:
+    path: /opt/rally-resources/scripts
+    recurse: yes
+    state: directory
+    mode: 0755
+
+- name: Generate AIO task Rally script
+  sudo: True
+  template:
+    src: rally-aio.job.sh.j2
+    dest: /opt/rally-resources/scripts
+    mode: 0744
+
 - name: Create Rally images directory
   sudo: True
   file:
