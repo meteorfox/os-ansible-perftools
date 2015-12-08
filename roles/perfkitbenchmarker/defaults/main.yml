@@ -15,7 +15,7 @@
 
 # Git repository vars
 perfkitbenchmarker_git_repo: https://github.com/GoogleCloudPlatform/PerfKitBenchmarker.git
-perfkitbenchmarker_git_install_branch: c4c250732399afef7a56f6da2704f3741e1aca0e
+perfkitbenchmarker_git_install_branch: 34daa1c6134a33534e2521271e2202f2a6529b96
 perfkitbenchmarker_git_dest: "/opt/perkitbenchmarker_{{ perfkitbenchmarker_git_install_branch | replace('/', '_') }}"
 
 # PIP vars
