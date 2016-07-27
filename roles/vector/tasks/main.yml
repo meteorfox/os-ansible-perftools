@@ -16,12 +16,16 @@
 - name: Download Vector
   become: true
   get_url:
-    url=https://dl.bintray.com/netflixoss/downloads/1.1.0/vector.tar.gz
-    dest=/tmp/vector.tar.gz
+    url: https://dl.bintray.com/netflixoss/downloads/1.1.0/vector.tar.gz
+    dest: /tmp/vector.tar.gz
+    force: no
 
 - name: Extract Vector
   become: true
   unarchive:
-    src=/tmp/vector.tar.gz
-    dest=/var/www/html/reports-server/vector
-    copy=no
+    src: /tmp/vector.tar.gz
+    dest: /var/www/html/reports-server/vector
+    copy: no
+    owner: www-data
+    group: www-data
+
