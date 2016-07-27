@@ -1,0 +1,4 @@
+- src: git+https://github.com/meteorfox/ansible-rally.git
+  name: ansible-rally
+
+  
