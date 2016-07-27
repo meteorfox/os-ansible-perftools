@@ -38,3 +38,8 @@
         - "www.{{ ansible_default_ipv4.address }}.xip.io"
         - "{{ ansible_em1.ipv4.address }}.xip.io"
         - "www.{{ ansible_em1.ipv4.address }}.xip.io"
+
+- name: Install Vector
+  hosts: monitor
+  roles:
+    - role: vector
