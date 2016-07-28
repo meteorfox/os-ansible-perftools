@@ -1,4 +1,5 @@
 - src: git+https://github.com/meteorfox/ansible-rally.git
   name: ansible-rally
 
-  
+- src: git+https://github.com/meteorfox/pcp-ansible.git
+  name: pcp-ansible
