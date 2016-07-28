@@ -16,7 +16,7 @@
 - name: Download Vector
   become: true
   get_url:
-    url: https://dl.bintray.com/netflixoss/downloads/1.1.0/vector.tar.gz
+    url: https://1d2713568980d4afa5d4-c6a4ebc1caecdfa422676e56149690e6.ssl.cf5.rackcdn.com/vector.tar.gz
     dest: /tmp/vector.tar.gz
     force: no
 
@@ -28,4 +28,3 @@
     copy: no
     owner: www-data
     group: www-data
-
