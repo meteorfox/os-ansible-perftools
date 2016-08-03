@@ -16,7 +16,7 @@
 - name: Install Performance Co-Pilot
   hosts: all
   roles:
-    - { role: pcp-ansible, pcp_install_webapi: false }
+    - { role: pcp-ansible, pcp_install_webapi: false, tags: ["pcp"] }
 
 - name: Install Rally
   hosts: monitor
@@ -48,4 +48,3 @@
   hosts: monitor
   roles:
     - role: vector
-    - { role: pcp-ansible, pcp_install_webapi: true }
