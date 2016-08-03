@@ -18,6 +18,11 @@
   roles:
     - { role: pcp-ansible, pcp_install_webapi: false, tags: ["pcp"] }
 
+- name: Install and Configure Telegraf
+  hosts: hosts
+  roles:
+    - { role: rossmcdonald.telegraf, tags: ["telegraf"] }
+
 - name: Install Rally
   hosts: monitor
   roles:
