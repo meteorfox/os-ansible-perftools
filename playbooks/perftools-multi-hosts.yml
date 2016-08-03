@@ -14,7 +14,7 @@
 # limitations under the License.
 
 - name: Install Performance Co-Pilot
-  hosts: all
+  hosts: hosts
   roles:
     - { role: pcp-ansible, pcp_install_webapi: false, tags: ["pcp"] }
 
