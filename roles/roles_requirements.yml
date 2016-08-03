@@ -6,3 +6,6 @@
 
 - src: git+https://github.com/rossmcdonald/telegraf.git
   name: rossmcdonald.telegraf
+
+- src: git+https://github.com/vhe182/ansible-influxdb.git
+  name: influxdb
