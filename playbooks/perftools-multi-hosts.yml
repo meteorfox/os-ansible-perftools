@@ -48,3 +48,9 @@
   hosts: monitor
   roles:
     - role: vector
+
+- name: Install InfluxDB
+  hosts: monitor
+  roles:
+    - role: influxdb
+  tags: influxdb
