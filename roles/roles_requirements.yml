@@ -3,3 +3,6 @@
 
 - src: git+https://github.com/meteorfox/pcp-ansible.git
   name: pcp-ansible
+
+- src: git+https://github.com/vhe182/perf-ansible.git
+  name: influxdb 
