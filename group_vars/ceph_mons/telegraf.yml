@@ -1,8 +1,8 @@
 ---
 telegraf_install_version: stable
 
-telegraf_runas_user: "ceph"
-telegraf_runas_group: "ceph"
+telegraf_runas_user: "root"
+telegraf_runas_group: "root"
 
 # Configuration Variables
 telegraf_tags:
@@ -52,6 +52,7 @@ telegraf_plugins:
   - name: net
     options:
       interfaces:
-        - "bond0"
-        - "bond1"
+        - "eth0"
+        - "eth1"
+        - "eth2"
   - name: ceph

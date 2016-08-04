@@ -38,7 +38,7 @@
 - name: Install and Configure Telegraf for Ceph nodes
   hosts: ceph_all
   roles:
-    - { role: rossmcdonald.telegraf, tags: ["telegraf_ceph"] }
+    - { role: rossmcdonald.telegraf, telegraf_runas_user: root, telegraf_runas_group: root, tags: ["telegraf_ceph"] }
 
 - name: Install Rally
   hosts: monitor
