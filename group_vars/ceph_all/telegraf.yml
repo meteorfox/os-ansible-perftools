@@ -1,4 +1,35 @@
 ---
+telegraf_install_version: stable
+
+# Configuration Variables
+telegraf_tags:
+
+telegraf_agent_interval: 10s
+telegraf_round_interval: "true"
+telegraf_metric_batch_size: "1000"
+telegraf_metric_buffer_limit: "10000"
+
+telegraf_collection_jitter: 0s
+telegraf_flush_interval: 10s
+telegraf_flush_jitter: 0s
+telegraf_debug: "false"
+telegraf_quiet: "false"
+telegraf_hostname:
+telegraf_omit_hostname: "false"
+
+telegraf_influxdb_urls:
+  - http://10.240.0.72:8086
+telegraf_influxdb_database: telegraf
+telegraf_influxdb_precision: s
+telegraf_influxdb_retention_policy: default
+telegraf_influxdb_write_consistency: any
+telegraf_influxdb_ssl_ca:
+telegraf_influxdb_ssl_cert:
+telegraf_influxdb_ssl_key:
+telegraf_influxdb_insecure_skip_verify:
+
+telegraf_influxdb_timeout: 5s
+
 telegraf_plugins:
   - name: mem
   - name: system
