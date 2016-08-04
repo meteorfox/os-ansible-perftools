@@ -29,6 +29,11 @@
   roles:
     - { role: rossmcdonald.telegraf, tags: ["telegraf"] }
 
+- name: Install and Configure Telegraf for Ceph nodes
+  hosts: ceph_all
+  roles:
+    - { role: rossmcdonald.telegraf, tags: ["telegraf_ceph"] }
+
 - name: Install Rally
   hosts: monitor
   roles:
