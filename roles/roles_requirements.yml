@@ -9,3 +9,6 @@
 
 - src: git+https://github.com/vhe182/ansible-influxdb.git
   name: influxdb
+
+- src: git+https://github.com/kbrebanov/ansible-chronograf.git
+  name: kbrebanov.chronograf

@@ -19,6 +19,12 @@
     - role: influxdb
   tags: influxdb
 
+- name: Install Chronograf
+  hosts: monitor
+  roles:
+    - role: kbrebanov.chronograf
+  tags: chronograf
+
 - name: Install Performance Co-Pilot
   hosts: hosts
   roles:
