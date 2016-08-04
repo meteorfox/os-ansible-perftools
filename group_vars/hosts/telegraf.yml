@@ -40,20 +40,9 @@ telegraf_plugins:
       fielddrop:
         - "time_*"
   - name: disk
-    options:
-      mountpoints:
-        - "/"
   - name: diskio
     options:
       skip_serial_number: "true"
-  - name: procstat
-    options:
-      exe: "influxd"
-      prefix: "influxdb"
-  - name: procstat
-    options:
-      pid_file: "/var/lib/neo4j/data/neo4j-service.pid"
-      prefix: "neo4j_proc"
   - name: net
     options:
       interfaces:

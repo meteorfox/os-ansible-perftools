@@ -1,8 +1,8 @@
 ---
 telegraf_install_version: stable
 
-telegraf_runas_user: "ceph"
-telegraf_runas_group: "ceph"
+telegraf_runas_user: "root"
+telegraf_runas_group: "root"
 
 # Configuration Variables
 telegraf_tags:
@@ -43,12 +43,13 @@ telegraf_plugins:
       fielddrop:
         - "time_*"
   - name: disk
-    options:
-      mountpoints:
-        - "/"
   - name: diskio
     options:
       skip_serial_number: "true"
+  - name: procstat
+    options:
+      exe: "ceph-osd"
+      prefix: "ceph-osd"
   - name: net
     options:
       interfaces:

@@ -43,9 +43,10 @@ telegraf_plugins:
       fielddrop:
         - "time_*"
   - name: disk
+  - name: procstat
     options:
-      mountpoints:
-        - "/"
+      exe: "ceph-mon"
+      prefix: "ceph-mon"
   - name: diskio
     options:
       skip_serial_number: "true"
