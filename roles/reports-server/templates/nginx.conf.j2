@@ -8,7 +8,18 @@ server {
     root {{ reports_server_root_path }};
 
     location / {
-      index index.htm index.html;
+      proxy_pass http://localhost:3000/;
+    }
+
+    location /vector {
+    }
+
+    location /jenkins {
+      proxy_pass http://localhost:8000;
+    }
+
+    location /pmweb/ {
+      proxy_pass http://localhost:44323/;
     }
 
     location /{{ reports_server_index_path }}/ {
@@ -17,6 +28,7 @@ server {
 
     location /favicon.ico {
         access_log     off;
-	log_not_found  off;
+	      log_not_found  off;
     }
+
 }
