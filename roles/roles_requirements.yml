@@ -13,5 +13,8 @@
 - src: git+https://github.com/kbrebanov/ansible-chronograf.git
   name: kbrebanov.chronograf
 
+- src: git+https://github.com/geerlingguy/ansible-role-java.git
+  name: geerlingguy.java
+
 - src: git+https://github.com/geerlingguy/ansible-role-jenkins.git
   name: geerlingguy.jenkins

@@ -19,6 +19,7 @@
     jenkins_version: "2.9"
     jenkins_url_prefix: "/jenkins"
   roles:
+    - geerlingguy.java
     - geerlingguy.jenkins
   tags: jenkins
 
