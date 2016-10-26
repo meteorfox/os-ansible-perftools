@@ -40,6 +40,12 @@
   roles:
     - { role: pcp-ansible, pcp_install_webapi: false, tags: ["pcp"] }
 
+- name: Install other miscellaneous perf tools for compute hosts
+  hosts: compute_hosts
+  roles:
+    - misc-perftools
+  tags: telegraf
+
 - name: Install and Configure Telegraf
   hosts: hosts
   roles:
@@ -49,12 +55,6 @@
   hosts: ceph_all
   roles:
     - { role: rossmcdonald.telegraf, telegraf_runas_user: root, telegraf_runas_group: root, tags: ["telegraf_ceph"] }
-
-- name: Install and Configure Telegraf for Compute Hosts
-  hosts: compute_hosts
-  roles:
-    - { role: rossmcdonald.telegraf }
-  tags: telegraf_compute
 
 - name: Install Rally
   hosts: monitor
