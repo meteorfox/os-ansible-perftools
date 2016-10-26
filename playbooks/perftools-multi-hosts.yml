@@ -50,6 +50,12 @@
   roles:
     - { role: rossmcdonald.telegraf, telegraf_runas_user: root, telegraf_runas_group: root, tags: ["telegraf_ceph"] }
 
+- name: Install and Configure Telegraf for Compute Hosts
+  hosts: compute_hosts
+  roles:
+    - { role: rossmcdonald.telegraf }
+  tags: telegraf_compute
+
 - name: Install Rally
   hosts: monitor
   roles:
