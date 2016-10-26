@@ -48,3 +48,4 @@ telegraf_plugins:
       interfaces:
         - "bond0"
         - "bond1"
+  - name: exec
