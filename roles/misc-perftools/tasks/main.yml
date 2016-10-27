@@ -21,6 +21,8 @@
   copy:
     src: "files/{{ item }}"
     dest: "/opt/telegraf/{{ item }}"
+    owner: "telegraf"
+    group: "telegraf"
     mode: 0755
   with_items:
     - kvm_virsh.py
