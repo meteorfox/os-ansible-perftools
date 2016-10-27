@@ -49,3 +49,9 @@ telegraf_plugins:
         - "bond0"
         - "bond1"
   - name: exec
+    options:
+      commands:
+        - "/opt/telegraf/kvm_virsh.py"
+      timeout: "15s"
+      data_format: "json"
+      name_prefix: "kvm_"
