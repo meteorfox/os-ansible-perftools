@@ -13,6 +13,21 @@
     - iotop
     - bwm-ng
 
+- name: Create directory for kvm metric collection configuration file
+  file: path=/opt/telegraf state=directory mode=0755
+  when: "'compute_hosts' in group_names"
+
+- name: Set configuration file for kvm metric collection
+  copy:
+    src: "files/{{ item }}"
+    dest: "/opt/telegraf/{{ item }}"
+    owner: "telegraf"
+    group: "telegraf"
+    mode: 0755
+  with_items:
+    - kvm_virsh.py
+  when: "'compute_hosts' in group_names"
+
 - name: Install perf-tools from git
   git:
     repo: "{{ perf_tools_git_repo }}"
