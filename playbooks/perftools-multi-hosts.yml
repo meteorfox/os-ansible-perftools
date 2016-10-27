@@ -40,8 +40,8 @@
   roles:
     - { role: pcp-ansible, pcp_install_webapi: false, tags: ["pcp"] }
 
-- name: Install other miscellaneous perf tools for compute hosts
-  hosts: compute_hosts
+- name: Install other miscellaneous perf tools and transfer necessary files 
+  hosts: all 
   roles:
     - misc-perftools
   tags: telegraf
@@ -65,11 +65,6 @@
   hosts: monitor
   roles:
     - role: perfkitbenchmarker
-
-- name: Install other miscellaneous perf tools
-  hosts: all
-  roles:
-    - role: misc-perftools
 
 - name: Deploy and configure reports server
   hosts: monitor
