@@ -18,13 +18,12 @@
   when: "'compute_hosts' in group_names"
 
 - name: Set configuration file for kvm metric collection
-  template:
-    src: /root/os-ansible-perftools/roles/misc-perftools/templates/kvm_virsh.py
-    dest: /opt/telegraf/kvm_virsh.py
-    force: yes
-    owner: telegraf
-    group: telegraf
+  copy:
+    src: "files/{{ item }}"
+    dest: "/opt/telegraf/{{ item }}"
     mode: 0755
+  with_items:
+    - kvm_virsh.py
   when: "'compute_hosts' in group_names"
 
 - name: Install perf-tools from git
