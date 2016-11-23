@@ -56,6 +56,11 @@
     - { role: rossmcdonald.telegraf }
   tags: telegraf_compute
 
+- name: Install other miscellaneous perf tools
+  hosts: all
+  roles:
+    - role: misc-perftools
+
 - name: Install Rally
   hosts: monitor
   roles:
@@ -65,11 +70,6 @@
   hosts: monitor
   roles:
     - role: perfkitbenchmarker
-
-- name: Install other miscellaneous perf tools
-  hosts: all
-  roles:
-    - role: misc-perftools
 
 - name: Deploy and configure reports server
   hosts: monitor
